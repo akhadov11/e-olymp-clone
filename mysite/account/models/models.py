@@ -8,7 +8,8 @@ User = get_user_model()
 
 class Country(models.Model):
     name = models.CharField(
-        max_length=255
+        max_length=255,
+        unique=True
     )
 
     class Meta:

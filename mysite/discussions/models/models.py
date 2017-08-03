@@ -1,7 +1,8 @@
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 from .discuss_models import Answer
-from mysite.account.user.user_model import Account
+from mysite.account.models.user_model import Account
 
 
 class Deliberation(models.Model):
@@ -11,11 +12,8 @@ class Deliberation(models.Model):
     description = models.CharField(
         max_length=255
     )
-    post_time = models.CharField(
-        max_length=255
-    )
-    answer_time = models.CharField(
-        max_length=255
+    post_time = models.DateTimeField(
+        auto_now_add=True
     )
     answer = models.ForeignKey(
         Answer,
@@ -29,3 +27,7 @@ class Deliberation(models.Model):
         related_name='deliberations',
         related_query_name='deliberation'
     )
+
+    class Meta:
+        verbose_name = _('deliberation')
+        verbose_name_plural = _('deliberations')

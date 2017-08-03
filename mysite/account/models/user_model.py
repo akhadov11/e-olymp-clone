@@ -1,20 +1,25 @@
-from django.db import models
 from django.contrib.auth import get_user_model
+from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
-from ..models import Country
+from .models import Country
+
 User = get_user_model()
 
 
 class Account(models.Model):
     user = models.OneToOneField(
         User,
+        related_name='account'
     )
     institution = models.CharField(
         max_length=255
     )
+    last_entrance = models.DateTimeField()
     city = models.CharField(
         null=True,
-        blank=True
+        blank=True,
+        max_length=50
     )
     country = models.ForeignKey(
         Country,
@@ -22,3 +27,6 @@ class Account(models.Model):
         related_query_name='account'
     )
 
+    class Meta:
+        verbose_name = _('account')
+        verbose_name_plural = _('accounts')

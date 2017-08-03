@@ -1,16 +1,23 @@
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
-from ...account.user.user_model import Account
+from ...account.models.user_model import Account
 
 
 class Answer(models.Model):
-    answer_time = models.DateTimeField()
+    answer_time = models.DateTimeField(
+        auto_now_add=True
+    )
     answer_message_text = models.CharField(
         max_length=255
     )
-    answered_by = models.ForeignKey(
+    answered_by = models.OneToOneField(
         Account,
         on_delete=models.CASCADE,
         related_name='answers',
         related_query_name='answer'
     )
+
+    class Meta:
+        verbose_name = _('answer')
+        verbose_name_plural = _('answers')
