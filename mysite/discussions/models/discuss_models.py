@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from ...account.models.user_model import Account
+from account.models.user_model import Account
 
 
 class Answer(models.Model):
@@ -15,7 +15,6 @@ class Answer(models.Model):
         Account,
         on_delete=models.CASCADE,
         related_name='answers',
-        related_query_name='answer'
     )
 
     class Meta:

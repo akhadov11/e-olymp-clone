@@ -11,8 +11,8 @@ class DeliberationViewSet(viewsets.ModelViewSet, DeliberationSerializer):
     serializer_class = DeliberationSerializer
     Deliberation.objects.order_by(-'post_time')
 
-
-class AnswerViewSet(viewsets.ModelViewSet, AnswerSerializer):
-    permission_classes = []
-    serializer_class = AnswerSerializer
-    Answer.objects.order_by(-'answer_time')
+#
+# class AnswerViewSet(viewsets.ModelViewSet, AnswerSerializer):
+#     permission_classes = []
+#     serializer_class = AnswerSerializer
+#     Answer.objects.order_by(-'answer_time')
