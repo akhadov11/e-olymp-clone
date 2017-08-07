@@ -19,7 +19,9 @@ class Deliberation(models.Model):
         Answer,
         on_delete=models.CASCADE,
         related_name='deliberations',
-        related_query_name='deliberation'
+        related_query_name='deliberation',
+        null=True,
+        blank=True
     )
     account = models.ForeignKey(
         Account,

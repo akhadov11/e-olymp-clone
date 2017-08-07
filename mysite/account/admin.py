@@ -4,5 +4,18 @@ from .models import (
     Account, Country
 )
 
-admin.site.register(Account)
-admin.site.register(Country)
+
+class AccountAdmin(admin.ModelAdmin):
+    list_display = ('user', 'institution', 'city', 'country')
+    list_filter = ('city', 'country', )
+
+
+class CountryAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    list_filter = ('name',)
+
+admin.site.register(Account, AccountAdmin)
+admin.site.register(Country, CountryAdmin)
+
+
+

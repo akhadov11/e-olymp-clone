@@ -73,7 +73,7 @@ class ProblemTest(models.Model):
 
     class Meta:
         verbose_name = _('Test')
-        verbose_name_plural = _('Tets')
+        verbose_name_plural = _('Tests')
 
 
 class Problem(models.Model):

@@ -10,9 +10,9 @@ class DeliberationSerializer(serializers.ModelSerializer):
         model = Deliberation
         fields = ('name', 'description', 'answer', 'account')
 
-#
-# class AnswerSerializer(serializers.ModelSerializer):
-#
-#     class Meta:
-#         model = Answer
-#         fields = ('answer_message_text', 'answered_by')
+
+class AnswerSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Answer
+        fields = ('answer_message_text', 'answered_by')

@@ -68,9 +68,6 @@ class Bookmark(models.Model):
 
 
 class Try(models.Model):
-    user_id = models.IntegerField(
-        unique=True
-    )
     source = models.CharField(
         max_length=255
     )

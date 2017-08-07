@@ -9,7 +9,6 @@ class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
         fields = ('institution', 'last_entrance' 'city', 'country')
-        # 'models'?
 
 
 class CountrySerializer(serializers.ModelSerializer):

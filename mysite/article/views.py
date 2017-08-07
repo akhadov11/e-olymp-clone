@@ -8,4 +8,4 @@ from .serializers import ItemSerializer
 class ItemViewSet(viewsets.ModelViewSet, ItemSerializer):
     permission_classes = []
     serializer_class = ItemSerializer
-    queryset = Item.objects.order_by(-'post_time')
+    queryset = Item.objects.order_by('-post_time')

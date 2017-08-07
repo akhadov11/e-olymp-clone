@@ -12,6 +12,9 @@ class Country(models.Model):
         unique=True
     )
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         verbose_name = _('Country')
         verbose_name_plural = _('Countries')
