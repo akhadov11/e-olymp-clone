@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from rest_framework import viewsets, mixins, response
+from rest_framework import viewsets, mixins, response, views, permissions
 
 from .serializers import (
     AccountSerializer, CountrySerializer, PasswordResetSerializer, UserInfoSerializer
@@ -34,11 +34,27 @@ class PasswordResetConfirmationViewSet(mixins.CreateModelMixin, viewsets.Generic
         return response.Response(status=201)
 
 
-class UserInfoViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
+class UserInfoViewSet(mixins.ListModelMixin, views.APIView):
     serializer_class = UserInfoSerializer
+    permission_classes = [permissions.IsAuthenticated, ]
 
-    def list(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         serializer = UserInfoSerializer(
-            request.user,
+            request.user
         )
         return response.Response(serializer.data)
+
+    def put(self, request, *args, **kwargs):
+        serializer = UserInfoSerializer(
+            data=request.data,
+            context={'request': request}
+        )
+        serializer.is_valid(raise_exception=True)
+        serializer.update(request.user, serializer.validated_data)
+        return response.Response(serializer.data)
+
+# class EditUserInfoViewSet(mixins.UpdateModelMixin, viewsets.GenericViewSet):
+#     serializer_class = UserInfoSerializer
+#
+#     def get_object(self):
+

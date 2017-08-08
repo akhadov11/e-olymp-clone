@@ -16,11 +16,10 @@ router.register(r'accounts', AccountViewSet, base_name='account')
 router.register(r'items', ItemViewSet, base_name='item')
 router.register(r'deliberations', DeliberationViewSet, base_name='deliberation')
 router.register(r'competition', CompetitionViewSet, base_name='competition')
-router.register(r'problemTests', ProblemTestViewSet, base_name='problemTest')
+router.register(r'problem-tests', ProblemTestViewSet, base_name='problem-test')
 router.register(r'problems', ProblemViewSet, base_name='problem')
 router.register(r'countries', CountryViewSet, base_name='country')
 router.register(r'password-reset', PasswordResetConfirmationViewSet, base_name='password-reset')
-router.register(r'user-info', UserInfoViewSet, base_name='user-info')
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -28,5 +27,6 @@ urlpatterns = [
     url(r'^auth/login', obtain_jwt_token, name='auth-token'),
     url(r'^auth/refresh-token', refresh_jwt_token, name='refresh-token'),
     url(r'^auth/verify-token', verify_jwt_token, name='verify-token'),
+    url(r'^auth/user-info', UserInfoViewSet.as_view(), name='user-info'),
 
 ]
