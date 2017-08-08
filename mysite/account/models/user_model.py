@@ -15,7 +15,7 @@ class Account(models.Model):
     institution = models.CharField(
         max_length=255
     )
-    last_entrance = models.DateTimeField()
+    last_activity = models.DateTimeField()
     city = models.CharField(
         null=True,
         blank=True,

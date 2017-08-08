@@ -14,7 +14,7 @@ class AccountSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Account
-        fields = ('institution', 'last_entrance', 'city', 'country')
+        fields = ('institution', 'last_activity', 'city', 'country')
 
 
 class CountrySerializer(serializers.ModelSerializer):
@@ -39,3 +39,11 @@ class PasswordResetSerializer(serializers.Serializer):
         confirmation = PasswordResetConfirmation.create(user)
         confirmation.send_reset_link()
         return confirmation
+
+
+class UserInfoSerializer(serializers.ModelSerializer):
+    account = AccountSerializer()
+
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email', 'last_login', 'date_joined', 'account')
