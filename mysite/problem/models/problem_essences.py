@@ -15,7 +15,6 @@ class Competition(models.Model):
     name = models.CharField(
         max_length=255,
     )
-
     description = models.CharField(
         max_length=255
     )
@@ -52,7 +51,7 @@ class ProblemTest(models.Model):
     testing of the whole problem
     """
 
-    try_id = models.ForeignKey(
+    attempt = models.ForeignKey(
         Try,
         on_delete=models.CASCADE,
         related_name='ProblemTests',
@@ -64,7 +63,7 @@ class ProblemTest(models.Model):
         related_name='ProblemTests',
         related_query_name='ProblemTest'
     )
-    test= models.ForeignKey(
+    test = models.ForeignKey(
         Test,
         on_delete=models.CASCADE,
         related_name='ProblemTests',
@@ -72,8 +71,8 @@ class ProblemTest(models.Model):
     )
 
     class Meta:
-        verbose_name = _('Test')
-        verbose_name_plural = _('Tests')
+        verbose_name = _('ProblemTest')
+        verbose_name_plural = _('ProblemTests')
 
 
 class Problem(models.Model):
@@ -106,7 +105,7 @@ class Problem(models.Model):
         related_name='problems',
         related_query_name='problem'
     )
-    bookmarks = models.ForeignKey(
+    bookmark = models.ForeignKey(
         Bookmark,
         on_delete=models.CASCADE,
         related_name='problems',

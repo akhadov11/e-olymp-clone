@@ -9,7 +9,7 @@ from .models import (
 
 
 class ProblemTestAdmin(admin.ModelAdmin):
-    list_display = ('compiler', 'test', )
+    list_display = ('compiler', 'test', 'attempt')
     list_filter = ('compiler',)
 
 
@@ -27,8 +27,8 @@ class ComplexityAdmin(admin.ModelAdmin):
 
 
 class ProblemAdmin(admin.ModelAdmin):
-    list_display = ('name', 'classification', 'complexity', 'status', 'bookmarks')
-    list_filter = ('name',)
+    list_display = ('name', 'classification', 'complexity', 'status', 'bookmark')
+    list_filter = ('name', 'classification', 'complexity', 'status', 'bookmark')
 
 
 class CompetitionAdmin(admin.ModelAdmin):

@@ -1,0 +1,7 @@
+{{ report_date }}
+{{ report_name }}
+{{ report_group_date_from }}-{{ report_group_date_to }}
+{{ company }}
+{{ client_name }}
+{{ manager_name }}
+{{ comment_text }}

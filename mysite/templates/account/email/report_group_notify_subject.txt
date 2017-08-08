@@ -1,0 +1,1 @@
+{{ report_group_date_from }}-{{ report_group_date_to }}.{{ company }}

@@ -12,7 +12,7 @@ class ProblemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Problem
-        fields = ('name', 'description', 'classification', 'complexity', 'status', 'bookmark')
+        fields = ('name', 'classification', 'complexity', 'status', 'bookmark')
 
 
 class CompetitionSerializer(serializers.ModelSerializer):
@@ -26,7 +26,7 @@ class ProblemTestSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProblemTest
-        fields = ('try-id', 'compiler', 'test')
+        fields = ('attempt', 'compiler', 'test')
 
 
 class ComplexitySerializer(serializers.ModelSerializer):

@@ -57,7 +57,7 @@ class BookmarkViewSet(viewsets.ModelViewSet):
     queryset = Bookmark.objects.all()
 
 
-class TryViewSet(viewsets.ModelViewSet):
+class AttemptViewSet(viewsets.ModelViewSet):
     permission_classes = []
     serializer_classes = TrySerializer
     queryset = Try.objects.all()

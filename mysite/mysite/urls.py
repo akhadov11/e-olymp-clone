@@ -4,7 +4,7 @@ from django.contrib import admin
 from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, verify_jwt_token
 from rest_framework.routers import DefaultRouter
 
-from account.views import CountryViewSet, AccountViewSet
+from account.views import CountryViewSet, AccountViewSet, PasswordResetConfirmationViewSet
 from article.views import ItemViewSet
 from discussions.views import DeliberationViewSet, AnswerViewSet
 from problem.views import CompetitionViewSet, ProblemViewSet, ProblemTestViewSet
@@ -19,6 +19,7 @@ router.register(r'competition', CompetitionViewSet, base_name='competition')
 router.register(r'problemTests', ProblemTestViewSet, base_name='problemTest')
 router.register(r'problems', ProblemViewSet, base_name='problem')
 router.register(r'countries', CountryViewSet, base_name='country')
+router.register(r'password-reset', PasswordResetConfirmationViewSet, base_name='password-reset')
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

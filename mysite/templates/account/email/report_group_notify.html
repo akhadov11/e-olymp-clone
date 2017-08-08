@@ -1,0 +1,25 @@
+{% extends "account/email/base.html" %}
+
+{% block header %}
+    Hi {{ client_name }}, you have a new alert for the report group from the ZDA team!
+{% endblock %}
+
+{% block body %}
+    <tr>
+        <td style=" font-size: 14px; line-height: 24px; color: #3e454c;">
+            <p>Company: {{ company }}</p>
+            <p>Report group: {{ report_group_date_from }}-{{ report_group_date_to }}</p>
+            {% if comment_text|length > 0 %}
+                <p>Comment: {{ comment_text }}</p>
+            {% endif %}
+            <ul>
+            {% for report in reports %}
+                <li>
+                <a href="{{ report.link }}">{{ report.name }}</a> - {{ report.type }} - {{ report.date }}
+                <br />
+                </li>
+            {% endfor %}
+            </ul>
+        </td>
+    </tr>
+{% endblock %}

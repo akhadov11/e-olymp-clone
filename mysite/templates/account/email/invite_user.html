@@ -1,0 +1,24 @@
+{% extends "account/email/base.html" %}
+
+{% block header %}
+    {% if user.is_manager %}
+        <h4>Your ZDA manager account has been created!</h4>
+    {% else %}
+        <h4>Your ZDA user account has been created!</h4>
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <tr>
+        <td>
+            <p><p>Please verify your email address by clicking on this link to complete the signup process:</p></p>
+        </td>
+    </tr>
+    <tr>
+        <td style=" font-size: 14px; line-height: 24px; color: #3e454c;">
+            <div style="text-align: center">
+                <a class="registration-button" href="{{ registration_url }}">Verify Registration</a>
+            </div>
+        </td>
+    </tr>
+{% endblock %}

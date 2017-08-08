@@ -9,10 +9,10 @@ from .serializers import DeliberationSerializer, AnswerSerializer
 class DeliberationViewSet(viewsets.ModelViewSet, DeliberationSerializer):
     permission_classes = []
     serializer_class = DeliberationSerializer
-    Deliberation.objects.order_by('-post_time')
+    queryset = Deliberation.objects.order_by('-post_time')
 
 
 class AnswerViewSet(viewsets.ModelViewSet, AnswerSerializer):
     permission_classes = []
     serializer_class = AnswerSerializer
-    Answer.objects.order_by('-answer_time')
+    queryset = Answer.objects.order_by('-answer_time')

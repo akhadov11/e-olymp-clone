@@ -1,18 +1,32 @@
 from django.shortcuts import render
-from rest_framework import viewsets
 
-from .serializers import AccountSerializer, CountrySerializer
+from rest_framework import viewsets, mixins, response
+
+from .serializers import AccountSerializer, CountrySerializer, PasswordResetSerializer
 from .models.user_model import Account
 from .models.models import Country
+from .password_confirmation import PasswordResetConfirmation
 
 
 class AccountViewSet(viewsets.ModelViewSet):
     permission_classes = []
     serializer_class = AccountSerializer
-    Account.objects.order_by('-last_entrance')
+    queryset = Account.objects.order_by('-last_entrance')
 
 
 class CountryViewSet(viewsets.ModelViewSet):
     permission_classes = []
     serializer_class = CountrySerializer
-    Country.objects.order_by('name')
+    queryset = Country.objects.order_by('-name')
+
+
+class PasswordResetConfirmationViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
+    serializer_class = PasswordResetSerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = PasswordResetSerializer(
+            data=request.data,
+        )
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return response.Response(status=201)
