@@ -84,7 +84,7 @@ def generate_signup_code_token(email=None):
     extra = []
     if email:
         extra.append(email)
-    return AccountDefaultHookSet.generate_random_token(extra)
+    return generate_random_token(extra)
 
 
 def generate_email_confirmation_token(email):
