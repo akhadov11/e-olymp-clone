@@ -11,9 +11,9 @@ from .password_confirmation import PasswordResetConfirmation
 
 
 class AccountViewSet(viewsets.ModelViewSet):
-    permission_classes = []
+    permission_classes = [permissions.AllowAny, ]
     serializer_class = AccountSerializer
-    queryset = Account.objects.order_by('-last_entrance')
+    queryset = Account.objects.order_by('-last_activity')
 
 
 class CountryViewSet(viewsets.ModelViewSet):

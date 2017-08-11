@@ -1,5 +1,5 @@
-from django.contrib.auth import get_user_model
 from django.db import models
+from django.contrib.auth import get_user_model
 from django.utils.translation import ugettext_lazy as _
 
 from .models import Country
@@ -24,7 +24,8 @@ class Account(models.Model):
     country = models.ForeignKey(
         Country,
         related_name='accounts',
-        related_query_name='account'
+        related_query_name='account',
+        verbose_name=_('account')
     )
 
     class Meta:

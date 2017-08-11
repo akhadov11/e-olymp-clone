@@ -17,6 +17,9 @@ class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
         fields = ('institution', 'last_activity', 'city', 'country_id')
+        extra_kwargs = {
+            'last_activity': {'read_only': True}
+        }
 
 
 class CountrySerializer(serializers.ModelSerializer):
@@ -62,7 +65,6 @@ class UserInfoSerializer(serializers.ModelSerializer):
         instance.save()
         return instance
 
-
 """
 {
     "first_name": "Test",
@@ -78,6 +80,8 @@ class UserInfoSerializer(serializers.ModelSerializer):
     }
 }
 """
+
+
 class PasswordResetConfSerializer(serializers.Serializer):
     """Serializer for Password Reset.
 

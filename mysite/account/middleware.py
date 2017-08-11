@@ -16,7 +16,7 @@ class AccountMiddleware(object):
         if user.is_authenticated:
             try:
                 account = user.account
-                account.last_entrance = now()
+                account.last_activity = now()
                 account.save()
             except Exception as ex:
                 logger.exception('User does not have account as expected.', extra={
