@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from account.models import Account
+from ..account.models import Account
 
 
 class Item(models.Model):
@@ -17,7 +17,8 @@ class Item(models.Model):
     created_by = models.OneToOneField(
         Account,
         related_name='items',
-        related_query_name='item'
+        related_query_name='item',
+        on_delete=models.CASCADE
     )
 
     class Meta:

@@ -12,5 +12,6 @@ class AnswerAdmin(admin.ModelAdmin):
     list_display = ('answer_time', 'answered_by')
     list_filter = ('answer_time', 'answered_by')
 
+
 admin.site.register(Deliberation, DeliberationAdmin)
 admin.site.register(Answer, AnswerAdmin)

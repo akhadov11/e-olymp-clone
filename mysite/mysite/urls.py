@@ -5,10 +5,10 @@ from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, verify
 from rest_framework.routers import DefaultRouter
 from rest_framework_swagger.views import get_swagger_view
 
-from account.views import CountryViewSet, AccountViewSet, PasswordResetConfirmationViewSet, UserInfoViewSet, PasswordResetViewSet
-from article.views import ItemViewSet
-from discussions.views import DeliberationViewSet, AnswerViewSet
-from problem.views import CompetitionViewSet, ProblemViewSet, ProblemTestViewSet
+from ..account.views import CountryViewSet, AccountViewSet, PasswordResetConfirmationViewSet, UserInfoViewSet, PasswordResetViewSet
+from ..article.views import ItemViewSet
+from ..discussions.views import DeliberationViewSet, AnswerViewSet
+from ..problem.views import CompetitionViewSet, ProblemViewSet, ProblemTestViewSet
 
 router = DefaultRouter()
 swagger = get_swagger_view()
