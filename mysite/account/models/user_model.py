@@ -10,7 +10,8 @@ User = get_user_model()
 class Account(models.Model):
     user = models.OneToOneField(
         User,
-        related_name='account'
+        related_name='account',
+        on_delete=models.CASCADE
     )
     institution = models.CharField(
         max_length=255
@@ -25,7 +26,8 @@ class Account(models.Model):
         Country,
         related_name='accounts',
         related_query_name='account',
-        verbose_name=_('account')
+        verbose_name=_('account'),
+        on_delete=models.CASCADE
     )
 
     class Meta:

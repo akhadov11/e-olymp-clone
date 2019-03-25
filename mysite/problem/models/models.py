@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-# from .problem_essences import Problem
+
+from .problem_essences import Problem
 
 
 class Classification(models.Model):
@@ -39,12 +40,12 @@ class Status(models.Model):
     name = models.CharField(
         max_length=255
     )
-    code = models.CharField(
-        max_length=255
-    )
-    description = models.CharField(
-        max_length=255
-    )
+    # code = models.CharField(
+    #     max_length=255
+    # )
+    # description = models.CharField(
+    #     max_length=255
+    # )
 
     class Meta:
         verbose_name = _('Status')
@@ -55,12 +56,12 @@ class Bookmark(models.Model):
     name = models.CharField(
         max_length=255
     )
-    code = models.CharField(
-        max_length=255
-    )
-    description = models.CharField(
-        max_length=255
-    )
+    # code = models.CharField(
+    #     max_length=255
+    # )
+    # description = models.CharField(
+    #     max_length=255
+    # )
 
     class Meta:
         verbose_name = _('Bookmark')
@@ -72,7 +73,8 @@ class Try(models.Model):
         max_length=255
     )
     problem = models.ForeignKey(
-        'Problem'
+        Problem,
+        on_delete=models.CASCADE
     )
 
     class Meta:
@@ -84,11 +86,12 @@ class Test(models.Model):
     """
     input data for each test of the problem
     """
-    input_data = models.CharField(
-        max_length=255
+    input_data = models.TextField(
+        max_length=555
     )
     problem = models.ForeignKey(
-        'Problem'
+        Problem,
+        on_delete=models.CASCADE
     )
 
     class Meta:
@@ -110,12 +113,12 @@ class CompetitionStatus(models.Model):
     name = models.CharField(
         max_length=255
     )
-    code = models.CharField(
-        max_length=255
-    )
-    description = models.CharField(
-        max_length=255
-    )
+    # code = models.CharField(
+    #     max_length=255
+    # )
+    # description = models.CharField(
+    #     max_length=255
+    # )
 
     class Meta:
         verbose_name = _('CompetitionStatus')
@@ -126,12 +129,12 @@ class CompetitionRule(models.Model):
     name = models.CharField(
         max_length=255
     )
-    code = models.CharField(
-        max_length=255
-    )
-    description = models.CharField(
-        max_length=255
-    )
+    # code = models.CharField(
+    #     max_length=255
+    # )
+    # description = models.CharField(
+    #     max_length=255
+    # )
 
     class Meta:
         verbose_name = _('CompetitionRule')
